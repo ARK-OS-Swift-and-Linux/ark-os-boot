@@ -1,0 +1,57 @@
+#
+# Copyright 2026 Aarav Ravindra Kharade
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+
+# ArkOS Raspberry Pi 4 Model B Boot Configuration
+# -------------------------------------------------
+# Read by VideoCore VI GPU firmware (start4.elf) at power-on.
+
+# Suppress VideoCore GPU rainbow test pattern splash screen
+disable_splash=1
+
+# Force 64-bit ARM mode (AArch64)
+arm_64bit=1
+
+# Enable GICv2 interrupt controller
+enable_gic=1
+
+# Enable UART serial console on GPIO 14 (TXD) / GPIO 15 (RXD) at 115200 baud
+enable_uart=1
+
+# Kernel image & RAM disk
+kernel=kernel8.img
+initramfs initramfs.img followkernel
+
+# Device tree blob
+device_tree=bcm2711-rpi-4-b.dtb
+
+# Enable VC4 KMS display driver overlay for HDMI output
+dtoverlay=vc4-kms-v3d
+
+# HDMI Display Compatibility (HDMI 0 port next to USB-C power input)
+hdmi_force_hotplug=1
+hdmi_drive=2
+config_hdmi_boost=7
+
+# GPU Memory allocation
+gpu_mem=128
+max_framebuffers=2
+
+# Framebuffer console (/dev/fb0)
+framebuffer_width=1920
+framebuffer_height=1080
+framebuffer_depth=32
+framebuffer_ignore_alpha=1

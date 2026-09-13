@@ -1,0 +1,28 @@
+#
+# Copyright 2026 Aarav Ravindra Kharade
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+# ArkOS Boot Loader Configuration
+Target_Kernel_Version = 7.0
+Initramfs_Source_Directory = system/sysroot/
+Initramfs_Source_Directory_ARM64 = system/sysrootaarch64/
+Compiled_Image_Output = boot/initramfs.img
+Compiled_Image_Output_ARM64 = boot/initramfs_arm64.img
+
+# Core Initialization Directives
+Compression_Format = gzip
+Compression_Level = 9
+Mount_Point = /
+Default_Init_Path = /usr/lib/arkos_init

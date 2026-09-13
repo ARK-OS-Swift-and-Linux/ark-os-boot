@@ -1,0 +1,9 @@
+--- TARGET ---
+Name = bootloader
+Type = executable
+Sources = bootloader.asm, stage2.asm
+
+--- TARGET ---
+Name = bootloader
+Type = efi_executable
+Sources = bootloader.c

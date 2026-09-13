@@ -1,0 +1,43 @@
+#
+# Copyright 2026 Aarav Ravindra Kharade
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+
+# ── ArkOS VBMeta Mount Configuration ────────────────────────────
+# This file is packaged inside vbmeta.img and loaded first by the
+# bootloader. It tells the bootloader where each partition image
+# lives and how to mount it.
+#
+# Format: <label> = <mount_point> <filesystem> <options>
+#
+
+# System partition — frameworks, libraries, apps
+system = /system ext4 ro,noatime
+
+# Vendor partition — DRM blobs, signing keys, mirror info
+vendor = /vendor ext4 ro,noatime
+
+# Device Tree Blob Overlays — extracted and applied by the bootloader
+# before the kernel takes over
+dtbo = /dtbo ext4 ro,noatime
+
+# Verified Boot Key — the bootloader reads the VBK key from this
+# partition and verifies sys.img and vend.img signatures against it
+vbk = /vbk ext4 ro,noatime
+
+# Boot partition — kernel, initramfs, DTBs (FAT32 on RPi4)
+boot = /boot vfat ro,noatime
+
+# Initramfs — loaded into RAM by the bootloader, not mounted as a partition
+initramfs = ram cpio none
