@@ -1,0 +1,4 @@
+build ../builddir/bootloader.bin: nasm ../boot/source/bootloader.asm
+build ../builddir/stage2.bin: nasm ../boot/source/stage2.asm
+build boot/source/bootloader.c.o: efi_cc ../boot/source/bootloader.c
+build ../builddir/BOOTX64.EFI: efi_link boot/source/bootloader.c.o 
